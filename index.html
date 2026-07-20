@@ -1,0 +1,2374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ember &amp; Bean | Premium Artisan Coffee House</title>
+    <meta
+      name="description"
+      content="Experience handcrafted specialty coffee made from ethically sourced beans. Discover our menu, subscriptions, and cozy spaces designed for coffee lovers."
+    />
+    <meta
+      name="keywords"
+      content="artisan coffee, specialty coffee, ethically sourced beans, espresso, latte, cold brew, coffee subscription"
+    />
+    <meta
+      property="og:title"
+      content="Ember &amp; Bean | Premium Artisan Coffee House"
+    />
+    <meta
+      property="og:description"
+      content="Experience handcrafted specialty coffee made from ethically sourced beans. Discover our menu and cozy spaces."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- GSAP (loaded early) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <!-- Grain Texture Overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- ========================= LOADING SCREEN ========================= -->
+    <div
+      id="loading-screen"
+      class="loading-screen"
+      aria-label="Loading Ember &amp; Bean"
+    >
+      <div class="loader-wrap">
+        <div class="loader-cup">
+          <div class="cup-body">
+            <div class="coffee-fill"></div>
+            <div class="steam-puff sp1"></div>
+            <div class="steam-puff sp2"></div>
+            <div class="steam-puff sp3"></div>
+          </div>
+          <div class="cup-handle"></div>
+          <div class="cup-saucer"></div>
+        </div>
+        <div class="loader-brand">
+          <span class="lb-ember">EMBER</span>
+          <span class="lb-amp">&amp;</span>
+          <span class="lb-bean">BEAN</span>
+        </div>
+        <div class="loader-tagline">Crafted Slowly. Savored Deeply.</div>
+        <div class="loader-bar-wrap">
+          <div class="loader-bar" id="loader-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= CUSTOM CURSOR ========================= -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ========================= NAVIGATION ========================= -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo" aria-label="Ember &amp; Bean home">
+          <img
+            src="images/logo.png"
+            alt="Ember &amp; Bean Logo"
+            class="logo-img"
+          />
+        </a>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">Our Story</a></li>
+          <li><a href="#drinks" class="nav-link">Menu</a></li>
+          <li><a href="#beans" class="nav-link">Beans</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#blog" class="nav-link">Blog</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a
+            href="#order"
+            class="btn-primary nav-cta magnetic-btn"
+            id="nav-order-btn"
+            >Order Now</a
+          >
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Open mobile menu"
+            aria-expanded="false"
+          >
+            <span class="h-line"></span>
+            <span class="h-line"></span>
+            <span class="h-line"></span>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul>
+          <li><a href="#home" class="mob-link">Home</a></li>
+          <li><a href="#about" class="mob-link">Our Story</a></li>
+          <li><a href="#drinks" class="mob-link">Menu</a></li>
+          <li><a href="#beans" class="mob-link">Beans</a></li>
+          <li><a href="#gallery" class="mob-link">Gallery</a></li>
+          <li><a href="#blog" class="mob-link">Blog</a></li>
+          <li><a href="#contact" class="mob-link">Contact</a></li>
+        </ul>
+        <a href="#order" class="btn-primary mob-order">Order Now</a>
+      </div>
+    </nav>
+
+    <!-- ========================= HERO ========================= -->
+    <section class="hero" id="home" aria-label="Hero section">
+      <!-- Slideshow Background -->
+      <div class="hero-slides" aria-hidden="true">
+        <div
+          class="hero-slide active"
+          style="
+            background-image: url(&quot;https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1920&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1920&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.pexels.com/photos/1995842/pexels-photo-1995842.jpeg?auto=compress&cs=tinysrgb&w=1920&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=1920&quot;);
+          "
+        ></div>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <!-- Steam Canvas -->
+      <canvas
+        class="steam-canvas"
+        id="steam-canvas"
+        aria-hidden="true"
+      ></canvas>
+
+      <div class="hero-content">
+        <div class="hero-badge" id="hero-badge">
+          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          <span>Ethically Sourced · Freshly Roasted Daily</span>
+        </div>
+        <h1 class="hero-headline" id="hero-headline">
+          Coffee Crafted for<br /><em>Moments That Matter</em>
+        </h1>
+        <p class="hero-desc" id="hero-desc">
+          From ethically sourced beans to handcrafted espresso, every cup is
+          made to slow your day and elevate your experience.
+        </p>
+        <div class="hero-btns" id="hero-btns">
+          <a
+            href="#order"
+            class="btn-primary magnetic-btn hero-btn-primary"
+            id="hero-btn-order"
+          >
+            <span>Order Online</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a
+            href="#drinks"
+            class="btn-ghost magnetic-btn hero-btn-ghost"
+            id="hero-btn-menu"
+          >
+            <span>View Menu</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Today's Special floating card -->
+      <div
+        class="hero-special-card"
+        id="hero-special-card"
+        aria-label="Today's special: Flat White"
+      >
+        <div class="special-pill">Today's Special</div>
+        <div class="special-body">
+          <img
+            src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=120"
+            alt="Flat White"
+            class="special-img"
+          />
+          <div class="special-text">
+            <strong>Flat White</strong>
+            <div class="special-stars" aria-label="5 stars">★★★★★</div>
+            <span class="special-price">$5.90</span>
+          </div>
+        </div>
+        <div class="special-tag">
+          <i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i>
+          Freshly Roasted
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-cue" aria-hidden="true">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ========================= ABOUT ========================= -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container about-grid">
+        <div class="about-img-col js-reveal-left">
+          <div class="about-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/3879495/pexels-photo-3879495.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Pour over coffee brewing process"
+              loading="lazy"
+              class="about-img"
+            />
+            <div class="about-est-badge" aria-label="Established 2018">
+              Est. 2018
+            </div>
+          </div>
+        </div>
+        <div class="about-content-col js-reveal-right">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title" id="about-heading">
+            Every Bean<br /><em>Has a Journey</em>
+          </h2>
+          <p class="body-text">
+            At Ember &amp; Bean, we believe exceptional coffee starts long
+            before it reaches your cup. We partner with sustainable farms across
+            25+ origins and roast every batch to highlight the unique character
+            of each region.
+          </p>
+          <p class="body-text">
+            Our team of passionate baristas, trained in the world's finest
+            coffee schools, bring you an experience that goes beyond a cup —
+            it's a ritual.
+          </p>
+          <div class="about-stats">
+            <div class="stat-box">
+              <span class="stat-num" data-count="25">0</span
+              ><span class="stat-suf">+</span>
+              <p>Coffee Origins</p>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-count="10">0</span
+              ><span class="stat-suf">K+</span>
+              <p>Happy Customers</p>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-count="100">0</span
+              ><span class="stat-suf">%</span>
+              <p>Ethically Sourced</p>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label-big">Daily</span>
+              <p>Fresh Roasted</p>
+            </div>
+          </div>
+          <a href="#about" class="btn-outline magnetic-btn"
+            >Learn More
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FEATURED DRINKS ========================= -->
+    <section class="drinks" id="drinks" aria-labelledby="drinks-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Menu</span>
+          <h2 class="section-title" id="drinks-heading">
+            Handcrafted with<br /><em>Love &amp; Precision</em>
+          </h2>
+          <p class="section-desc">
+            Each drink is a masterpiece, crafted with care using the finest
+            ingredients from around the world.
+          </p>
+        </div>
+        <div class="drinks-grid">
+          <article
+            class="drink-card js-stagger"
+            data-delay="0"
+            aria-label="Espresso"
+          >
+            <div class="drink-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Espresso in a white cup"
+                loading="lazy"
+              />
+              <div class="steam-css" aria-hidden="true">
+                <div class="sc-line l1"></div>
+                <div class="sc-line l2"></div>
+                <div class="sc-line l3"></div>
+              </div>
+              <div class="drink-hover-info">
+                <span>Ingredients</span>
+                <p>Single Origin Beans · Filtered Water</p>
+              </div>
+            </div>
+            <div class="drink-info">
+              <h3>Espresso</h3>
+              <p>
+                Rich, bold and perfectly extracted. Our signature single-origin
+                espresso, pulled at the ideal pressure.
+              </p>
+              <div class="drink-footer">
+                <span class="drink-price">$4.50</span
+                ><button class="btn-add" aria-label="Add Espresso to order">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="drink-card js-stagger"
+            data-delay="100"
+            aria-label="Flat White"
+          >
+            <div class="drink-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Flat White with latte art"
+                loading="lazy"
+              />
+              <div class="steam-css" aria-hidden="true">
+                <div class="sc-line l1"></div>
+                <div class="sc-line l2"></div>
+                <div class="sc-line l3"></div>
+              </div>
+              <div class="drink-hover-info">
+                <span>Ingredients</span>
+                <p>Double Espresso · Micro-steamed Milk</p>
+              </div>
+            </div>
+            <div class="drink-info">
+              <h3>Flat White</h3>
+              <p>
+                Velvety micro-foam meets rich espresso for a perfectly balanced,
+                smooth finish.
+              </p>
+              <div class="drink-footer">
+                <span class="drink-price">$5.90</span
+                ><button class="btn-add" aria-label="Add Flat White to order">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="drink-card js-stagger"
+            data-delay="200"
+            aria-label="Caramel Latte"
+          >
+            <div class="drink-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/6205791/pexels-photo-6205791.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Caramel Latte with foam"
+                loading="lazy"
+              />
+              <div class="steam-css" aria-hidden="true">
+                <div class="sc-line l1"></div>
+                <div class="sc-line l2"></div>
+                <div class="sc-line l3"></div>
+              </div>
+              <div class="drink-hover-info">
+                <span>Ingredients</span>
+                <p>Espresso · Caramel Syrup · Oat Milk · Foam</p>
+              </div>
+            </div>
+            <div class="drink-info">
+              <h3>Caramel Latte</h3>
+              <p>
+                Indulgent caramel swirled into silky latte, topped with a gentle
+                caramel drizzle.
+              </p>
+              <div class="drink-footer">
+                <span class="drink-price">$6.50</span
+                ><button
+                  class="btn-add"
+                  aria-label="Add Caramel Latte to order"
+                >
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="drink-card js-stagger"
+            data-delay="0"
+            aria-label="Mocha"
+          >
+            <div class="drink-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/5731908/pexels-photo-5731908.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Rich chocolate mocha"
+                loading="lazy"
+              />
+              <div class="steam-css" aria-hidden="true">
+                <div class="sc-line l1"></div>
+                <div class="sc-line l2"></div>
+                <div class="sc-line l3"></div>
+              </div>
+              <div class="drink-hover-info">
+                <span>Ingredients</span>
+                <p>Espresso · Dark Chocolate · Steamed Milk</p>
+              </div>
+            </div>
+            <div class="drink-info">
+              <h3>Mocha</h3>
+              <p>
+                The perfect marriage of rich espresso and dark Belgian chocolate
+                with velvet milk.
+              </p>
+              <div class="drink-footer">
+                <span class="drink-price">$6.90</span
+                ><button class="btn-add" aria-label="Add Mocha to order">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="drink-card js-stagger"
+            data-delay="100"
+            aria-label="Cold Brew"
+          >
+            <div class="drink-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/4061525/pexels-photo-4061525.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Cold brew coffee in glass"
+                loading="lazy"
+              />
+              <div class="drink-hover-info">
+                <span>Ingredients</span>
+                <p>Coarse Ground Beans · Cold Water · 18hr Brew</p>
+              </div>
+            </div>
+            <div class="drink-info">
+              <h3>Cold Brew</h3>
+              <p>
+                Steeped for 18 hours at cold temperature, yielding a silky
+                smooth, low-acid concentrate.
+              </p>
+              <div class="drink-footer">
+                <span class="drink-price">$5.50</span
+                ><button class="btn-add" aria-label="Add Cold Brew to order">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="drink-card js-stagger"
+            data-delay="200"
+            aria-label="Matcha Latte"
+          >
+            <div class="drink-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/5946633/pexels-photo-5946633.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Matcha latte in ceramic cup"
+                loading="lazy"
+              />
+              <div class="steam-css" aria-hidden="true">
+                <div class="sc-line l1"></div>
+                <div class="sc-line l2"></div>
+                <div class="sc-line l3"></div>
+              </div>
+              <div class="drink-hover-info">
+                <span>Ingredients</span>
+                <p>Ceremonial Matcha · Oat Milk · Honey</p>
+              </div>
+            </div>
+            <div class="drink-info">
+              <h3>Matcha Latte</h3>
+              <p>
+                Ceremonial-grade Japanese matcha whisked with velvety oat milk
+                and a touch of honey.
+              </p>
+              <div class="drink-footer">
+                <span class="drink-price">$6.20</span
+                ><button class="btn-add" aria-label="Add Matcha Latte to order">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="section-cta">
+          <a href="#menu" class="btn-outline magnetic-btn"
+            >See Full Menu
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= COFFEE BEANS COLLECTION ========================= -->
+    <section class="beans-section" id="beans" aria-labelledby="beans-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Single Origin</span>
+          <h2 class="section-title" id="beans-heading">
+            Our Bean<br /><em>Collection</em>
+          </h2>
+          <p class="section-desc">
+            Rare, ethically sourced beans from the world's most celebrated
+            coffee growing regions.
+          </p>
+        </div>
+        <div class="beans-grid">
+          <article
+            class="bean-card tilt-card js-stagger"
+            data-delay="0"
+            aria-label="Ethiopian Heirloom coffee"
+          >
+            <div class="bean-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Ethiopian coffee beans close up"
+                loading="lazy"
+              />
+              <div class="bean-flag" aria-label="Ethiopia">🇪🇹</div>
+            </div>
+            <div class="bean-body">
+              <span class="bean-region">Ethiopia · Yirgacheffe</span>
+              <h3>Ethiopian Heirloom</h3>
+              <p>
+                Blueberry and jasmine notes with a bright, wine-like acidity. A
+                truly exotic single origin.
+              </p>
+              <div class="bean-roast">
+                <div class="roast-labels">
+                  <span>Light Roast</span><span>30%</span>
+                </div>
+                <div class="roast-track">
+                  <div class="roast-fill" style="width: 30%"></div>
+                </div>
+              </div>
+              <div class="bean-actions">
+                <button
+                  class="btn-quick-view"
+                  data-bean="0"
+                  aria-label="Quick view Ethiopian Heirloom"
+                >
+                  Quick View
+                </button>
+                <div class="bean-price-row">
+                  <span class="bean-price">$22<small>/250g</small></span>
+                  <button
+                    class="btn-cart"
+                    aria-label="Add Ethiopian Heirloom to cart"
+                  >
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="bean-card tilt-card js-stagger"
+            data-delay="100"
+            aria-label="Colombian Supremo coffee"
+          >
+            <div class="bean-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/2523645/pexels-photo-2523645.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Colombian coffee plantation"
+                loading="lazy"
+              />
+              <div class="bean-flag" aria-label="Colombia">🇨🇴</div>
+            </div>
+            <div class="bean-body">
+              <span class="bean-region">Colombia · Huila</span>
+              <h3>Colombian Supremo</h3>
+              <p>
+                Smooth caramel sweetness with hints of red apple and hazelnut. A
+                balanced everyday gem.
+              </p>
+              <div class="bean-roast">
+                <div class="roast-labels">
+                  <span>Medium Roast</span><span>55%</span>
+                </div>
+                <div class="roast-track">
+                  <div class="roast-fill" style="width: 55%"></div>
+                </div>
+              </div>
+              <div class="bean-actions">
+                <button
+                  class="btn-quick-view"
+                  data-bean="1"
+                  aria-label="Quick view Colombian Supremo"
+                >
+                  Quick View
+                </button>
+                <div class="bean-price-row">
+                  <span class="bean-price">$19<small>/250g</small></span>
+                  <button
+                    class="btn-cart"
+                    aria-label="Add Colombian Supremo to cart"
+                  >
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="bean-card tilt-card js-stagger"
+            data-delay="200"
+            aria-label="Brazilian Santos coffee"
+          >
+            <div class="bean-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Brazilian coffee beans"
+                loading="lazy"
+              />
+              <div class="bean-flag" aria-label="Brazil">🇧🇷</div>
+            </div>
+            <div class="bean-body">
+              <span class="bean-region">Brazil · Cerrado</span>
+              <h3>Brazilian Santos</h3>
+              <p>
+                Dark chocolate, nutty, and earthy. Perfect for espresso with a
+                long, smooth finish.
+              </p>
+              <div class="bean-roast">
+                <div class="roast-labels">
+                  <span>Dark Roast</span><span>80%</span>
+                </div>
+                <div class="roast-track">
+                  <div class="roast-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="bean-actions">
+                <button
+                  class="btn-quick-view"
+                  data-bean="2"
+                  aria-label="Quick view Brazilian Santos"
+                >
+                  Quick View
+                </button>
+                <div class="bean-price-row">
+                  <span class="bean-price">$17<small>/250g</small></span>
+                  <button
+                    class="btn-cart"
+                    aria-label="Add Brazilian Santos to cart"
+                  >
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="bean-card tilt-card js-stagger"
+            data-delay="300"
+            aria-label="Kenyan AA coffee"
+          >
+            <div class="bean-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/2074130/pexels-photo-2074130.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Kenyan coffee barista"
+                loading="lazy"
+              />
+              <div class="bean-flag" aria-label="Kenya">🇰🇪</div>
+            </div>
+            <div class="bean-body">
+              <span class="bean-region">Kenya · Nyeri</span>
+              <h3>Kenyan AA</h3>
+              <p>
+                Blackcurrant, tomato, and citrus zest. Bold acidity with a
+                complex, juicy body.
+              </p>
+              <div class="bean-roast">
+                <div class="roast-labels">
+                  <span>Medium-Light</span><span>42%</span>
+                </div>
+                <div class="roast-track">
+                  <div class="roast-fill" style="width: 42%"></div>
+                </div>
+              </div>
+              <div class="bean-actions">
+                <button
+                  class="btn-quick-view"
+                  data-bean="3"
+                  aria-label="Quick view Kenyan AA"
+                >
+                  Quick View
+                </button>
+                <div class="bean-price-row">
+                  <span class="bean-price">$24<small>/250g</small></span>
+                  <button class="btn-cart" aria-label="Add Kenyan AA to cart">
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= BREWING METHODS ========================= -->
+    <section class="brewing" id="brewing" aria-labelledby="brewing-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Craft &amp; Science</span>
+          <h2 class="section-title" id="brewing-heading">
+            The Art of<br /><em>Brewing</em>
+          </h2>
+          <p class="section-desc">
+            Six techniques. One mission: to unlock the highest potential of
+            every bean.
+          </p>
+        </div>
+        <div class="brewing-grid">
+          <div class="brewing-card js-stagger" data-delay="0">
+            <div class="bc-icon" aria-hidden="true">☕</div>
+            <h3>Pour Over</h3>
+            <p>
+              A slow, meditative brew producing a clean, complex cup. Total
+              control, layer by layer.
+            </p>
+            <div class="bc-details">
+              <div class="bc-row">
+                <span>Brew Time</span><span>3–4 min</span>
+              </div>
+              <div class="bc-row">
+                <span>Grind</span><span>Medium-Fine</span>
+              </div>
+              <div class="bc-row">
+                <span>Temp</span><span>93°C / 200°F</span>
+              </div>
+              <div class="bc-row"><span>Ratio</span><span>1:15</span></div>
+            </div>
+            <button class="bc-toggle" aria-expanded="false">
+              Details
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="brewing-card js-stagger" data-delay="100">
+            <div class="bc-icon" aria-hidden="true">🫖</div>
+            <h3>French Press</h3>
+            <p>
+              Full-bodied and rich with natural oils retained. The classic
+              immersion method.
+            </p>
+            <div class="bc-details">
+              <div class="bc-row"><span>Brew Time</span><span>4 min</span></div>
+              <div class="bc-row"><span>Grind</span><span>Coarse</span></div>
+              <div class="bc-row">
+                <span>Temp</span><span>95°C / 203°F</span>
+              </div>
+              <div class="bc-row"><span>Ratio</span><span>1:12</span></div>
+            </div>
+            <button class="bc-toggle" aria-expanded="false">
+              Details
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="brewing-card js-stagger" data-delay="200">
+            <div class="bc-icon" aria-hidden="true">⚗️</div>
+            <h3>Chemex</h3>
+            <p>
+              Elegant and pure. Thick Chemex filters produce a uniquely clean,
+              tea-like cup.
+            </p>
+            <div class="bc-details">
+              <div class="bc-row">
+                <span>Brew Time</span><span>4–5 min</span>
+              </div>
+              <div class="bc-row">
+                <span>Grind</span><span>Medium-Coarse</span>
+              </div>
+              <div class="bc-row">
+                <span>Temp</span><span>93°C / 200°F</span>
+              </div>
+              <div class="bc-row"><span>Ratio</span><span>1:15</span></div>
+            </div>
+            <button class="bc-toggle" aria-expanded="false">
+              Details
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="brewing-card js-stagger" data-delay="0">
+            <div class="bc-icon" aria-hidden="true">🔧</div>
+            <h3>Aeropress</h3>
+            <p>
+              Compact, versatile and forgiving. Produces a concentrated,
+              espresso-style brew.
+            </p>
+            <div class="bc-details">
+              <div class="bc-row">
+                <span>Brew Time</span><span>1–2 min</span>
+              </div>
+              <div class="bc-row">
+                <span>Grind</span><span>Fine-Medium</span>
+              </div>
+              <div class="bc-row"><span>Temp</span><span>80–85°C</span></div>
+              <div class="bc-row"><span>Ratio</span><span>1:10</span></div>
+            </div>
+            <button class="bc-toggle" aria-expanded="false">
+              Details
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="brewing-card js-stagger" data-delay="100">
+            <div class="bc-icon" aria-hidden="true">⚡</div>
+            <h3>Espresso</h3>
+            <p>
+              The foundation of all milk drinks. Concentrated, intense and
+              deeply aromatic.
+            </p>
+            <div class="bc-details">
+              <div class="bc-row">
+                <span>Brew Time</span><span>25–30 sec</span>
+              </div>
+              <div class="bc-row"><span>Grind</span><span>Very Fine</span></div>
+              <div class="bc-row">
+                <span>Temp</span><span>93°C / 200°F</span>
+              </div>
+              <div class="bc-row"><span>Pressure</span><span>9 Bar</span></div>
+            </div>
+            <button class="bc-toggle" aria-expanded="false">
+              Details
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="brewing-card js-stagger" data-delay="200">
+            <div class="bc-icon" aria-hidden="true">🧊</div>
+            <h3>Cold Brew</h3>
+            <p>
+              18 hours of cold steeping creates a smooth, low-acid concentrate.
+              Refreshingly different.
+            </p>
+            <div class="bc-details">
+              <div class="bc-row">
+                <span>Brew Time</span><span>18 hrs</span>
+              </div>
+              <div class="bc-row"><span>Grind</span><span>Coarse</span></div>
+              <div class="bc-row"><span>Temp</span><span>4°C / 39°F</span></div>
+              <div class="bc-row"><span>Ratio</span><span>1:8</span></div>
+            </div>
+            <button class="bc-toggle" aria-expanded="false">
+              Details
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= WHY CHOOSE US ========================= -->
+    <section class="why-us" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Why We're Different</span>
+          <h2 class="section-title" id="why-heading">
+            More Than Coffee,<br /><em>It's a Lifestyle</em>
+          </h2>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card js-stagger" data-delay="0">
+            <div class="feat-icon" aria-hidden="true">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h3>Freshly Roasted</h3>
+            <p>
+              Every batch roasted in-house daily. From bean to brew within 48
+              hours, guaranteed.
+            </p>
+          </div>
+          <div class="feature-card js-stagger" data-delay="100">
+            <div class="feat-icon" aria-hidden="true">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h3>Organic Beans</h3>
+            <p>
+              100% certified organic, single-origin beans from transparent,
+              sustainable partner farms.
+            </p>
+          </div>
+          <div class="feature-card js-stagger" data-delay="200">
+            <div class="feat-icon" aria-hidden="true">
+              <i class="fa-solid fa-wifi"></i>
+            </div>
+            <h3>Free High-Speed WiFi</h3>
+            <p>
+              Ultra-fast connectivity so you can work, create, and connect
+              without interruption.
+            </p>
+          </div>
+          <div class="feature-card js-stagger" data-delay="0">
+            <div class="feat-icon" aria-hidden="true">
+              <i class="fa-solid fa-couch"></i>
+            </div>
+            <h3>Cozy Workspaces</h3>
+            <p>
+              Thoughtfully designed spaces for solo focus, team meetings, or
+              quiet, productive reads.
+            </p>
+          </div>
+          <div class="feature-card js-stagger" data-delay="100">
+            <div class="feat-icon" aria-hidden="true">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <h3>Fast Delivery</h3>
+            <p>
+              Fresh beans and signature blends delivered to your door within 24
+              hours of roasting.
+            </p>
+          </div>
+          <div class="feature-card js-stagger" data-delay="200">
+            <div class="feat-icon" aria-hidden="true">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3>Expert Baristas</h3>
+            <p>
+              World-class baristas with specialty coffee certifications and
+              years of craft experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= SIGNATURE ATMOSPHERE ========================= -->
+    <section class="atmosphere" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Space</span>
+          <h2 class="section-title" id="gallery-heading">
+            Signature<br /><em>Atmosphere</em>
+          </h2>
+          <p class="section-desc">
+            Every corner crafted with intention. Come find your favorite spot.
+          </p>
+        </div>
+      </div>
+      <div class="gallery-scroll-wrap" id="gallery-scroll-wrap">
+        <div class="gallery-track" id="gallery-track">
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/1995842/pexels-photo-1995842.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Cozy wood café interior"
+              loading="lazy"
+            />
+            <div class="gi-caption">Wood Interiors</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/1585325/pexels-photo-1585325.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Laptop workspace at café"
+              loading="lazy"
+            />
+            <div class="gi-caption">Laptop Workspace</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Friends enjoying coffee"
+              loading="lazy"
+            />
+            <div class="gi-caption">Friends Gathering</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Outdoor café seating"
+              loading="lazy"
+            />
+            <div class="gi-caption">Outdoor Seating</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Café at night"
+              loading="lazy"
+            />
+            <div class="gi-caption">Night Ambience</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Reading corner at café"
+              loading="lazy"
+            />
+            <div class="gi-caption">Reading Corner</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= MEET OUR BARISTAS ========================= -->
+    <section class="baristas" aria-labelledby="baristas-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Team</span>
+          <h2 class="section-title" id="baristas-heading">
+            Meet the<br /><em>Craftspeople</em>
+          </h2>
+          <p class="section-desc">
+            Behind every perfect cup is a passionate artisan dedicated to their
+            craft.
+          </p>
+        </div>
+        <div class="baristas-grid">
+          <article
+            class="barista-card js-stagger"
+            data-delay="0"
+            aria-label="Sofia Martínez, Head Barista"
+          >
+            <div class="barista-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/2385477/pexels-photo-2385477.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Sofia Martínez - Head Barista"
+                loading="lazy"
+              />
+              <div class="barista-hover">
+                <p>"Coffee is the language I speak with the most fluency."</p>
+                <div class="barista-socials">
+                  <a href="#" aria-label="Sofia's Instagram"
+                    ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                  ></a>
+                  <a href="#" aria-label="Sofia's LinkedIn"
+                    ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="barista-info">
+              <h3>Sofia Martínez</h3>
+              <span>Head Barista · SCA Champion</span>
+              <p>10 years of mastery across London, Tokyo, and Melbourne.</p>
+            </div>
+          </article>
+          <article
+            class="barista-card js-stagger"
+            data-delay="150"
+            aria-label="James Thornton, Head Roastmaster"
+          >
+            <div class="barista-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/3807571/pexels-photo-3807571.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="James Thornton - Head Roastmaster"
+                loading="lazy"
+              />
+              <div class="barista-hover">
+                <p>"Roasting is a conversation between bean and flame."</p>
+                <div class="barista-socials">
+                  <a href="#" aria-label="James's Instagram"
+                    ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                  ></a>
+                  <a href="#" aria-label="James's LinkedIn"
+                    ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="barista-info">
+              <h3>James Thornton</h3>
+              <span>Head Roastmaster</span>
+              <p>Award-winning roaster with 15 years of sensory expertise.</p>
+            </div>
+          </article>
+          <article
+            class="barista-card js-stagger"
+            data-delay="300"
+            aria-label="Aisha Nguyen, Latte Art Specialist"
+          >
+            <div class="barista-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/1468379/pexels-photo-1468379.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Aisha Nguyen - Latte Art Specialist"
+                loading="lazy"
+              />
+              <div class="barista-hover">
+                <p>"Every cup is a canvas waiting to be filled with beauty."</p>
+                <div class="barista-socials">
+                  <a href="#" aria-label="Aisha's Instagram"
+                    ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                  ></a>
+                  <a href="#" aria-label="Aisha's LinkedIn"
+                    ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="barista-info">
+              <h3>Aisha Nguyen</h3>
+              <span>Latte Art Specialist</span>
+              <p>World Latte Art Championship finalist, 2023 &amp; 2024.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FARM TO CUP TIMELINE ========================= -->
+    <section class="timeline" aria-labelledby="timeline-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Process</span>
+          <h2 class="section-title" id="timeline-heading">
+            Farm to Cup<br /><em>Journey</em>
+          </h2>
+        </div>
+        <div class="timeline-wrap">
+          <div class="tl-item js-reveal-left">
+            <div class="tl-icon" aria-hidden="true">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <div class="tl-content">
+              <span class="tl-step">Step 01</span>
+              <h3>Farm Partnership</h3>
+              <p>
+                We visit and partner directly with sustainable farms across 25+
+                countries, ensuring fair wages and eco-conscious practices.
+              </p>
+            </div>
+          </div>
+          <div class="tl-item tl-right js-reveal-right">
+            <div class="tl-icon" aria-hidden="true">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <div class="tl-content">
+              <span class="tl-step">Step 02</span>
+              <h3>Careful Harvesting</h3>
+              <p>
+                Hand-picked at peak ripeness, only the finest cherries make the
+                journey to become Ember &amp; Bean coffee.
+              </p>
+            </div>
+          </div>
+          <div class="tl-item js-reveal-left">
+            <div class="tl-icon" aria-hidden="true">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <div class="tl-content">
+              <span class="tl-step">Step 03</span>
+              <h3>Processing &amp; Sorting</h3>
+              <p>
+                Each batch is carefully processed, dried, and sorted to ensure
+                only flawless green beans proceed to roasting.
+              </p>
+            </div>
+          </div>
+          <div class="tl-item tl-right js-reveal-right">
+            <div class="tl-icon" aria-hidden="true">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="tl-content">
+              <span class="tl-step">Step 04</span>
+              <h3>Artisan Roasting</h3>
+              <p>
+                Our master roasters craft each profile to unlock the bean's
+                highest potential — never over-roasted, never rushed.
+              </p>
+            </div>
+          </div>
+          <div class="tl-item js-reveal-left">
+            <div class="tl-icon" aria-hidden="true">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+            <div class="tl-content">
+              <span class="tl-step">Step 05</span>
+              <h3>Your Perfect Cup</h3>
+              <p>
+                From roaster to your hands within 48 hours, ensuring the
+                freshest, most vibrant coffee experience possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CUSTOMER REVIEWS ========================= -->
+    <section class="reviews" aria-labelledby="reviews-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What They Say</span>
+          <h2 class="section-title" id="reviews-heading">
+            Loved by<br /><em>Coffee Souls</em>
+          </h2>
+        </div>
+        <div
+          class="swiper reviews-swiper"
+          aria-label="Customer reviews carousel"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="review-card glass-card">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-text">
+                  "Ember &amp; Bean completely changed how I experience coffee.
+                  The Ethiopian pour over is unlike anything I've tasted —
+                  floral, complex, and absolutely beautiful."
+                </p>
+                <div class="review-author">
+                  <img
+                    src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="Sarah K."
+                    loading="lazy"
+                  />
+                  <div><strong>Sarah K.</strong><span>🇺🇸 New York</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="review-card glass-card">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-text">
+                  "As a remote worker I've been to countless cafés. Ember &amp;
+                  Bean is in a league of its own — perfect ambience, blazing
+                  WiFi, and the best flat white in the city."
+                </p>
+                <div class="review-author">
+                  <img
+                    src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="Marcus L."
+                    loading="lazy"
+                  />
+                  <div><strong>Marcus L.</strong><span>🇬🇧 London</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="review-card glass-card">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-text">
+                  "The subscription service is a game-changer. Fresh Kenyan AA
+                  every month delivered to my door. I've cancelled every other
+                  coffee subscription since discovering this."
+                </p>
+                <div class="review-author">
+                  <img
+                    src="https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="Yuki T."
+                    loading="lazy"
+                  />
+                  <div><strong>Yuki T.</strong><span>🇯🇵 Tokyo</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="review-card glass-card">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-text">
+                  "The farm-to-cup transparency is everything. I finally know
+                  exactly where my coffee comes from and it makes every sip feel
+                  intentional and meaningful."
+                </p>
+                <div class="review-author">
+                  <img
+                    src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="Amara N."
+                    loading="lazy"
+                  />
+                  <div><strong>Amara N.</strong><span>🇳🇬 Lagos</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= COFFEE SUBSCRIPTION ========================= -->
+    <section
+      class="subscription"
+      id="subscription"
+      aria-labelledby="sub-heading"
+    >
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Monthly Box</span>
+          <h2 class="section-title" id="sub-heading">
+            Your Coffee,<br /><em>Delivered Monthly</em>
+          </h2>
+          <p class="section-desc">
+            Curated beans from the world's best origins, fresh to your door
+            every single month.
+          </p>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-card js-stagger" data-delay="0">
+            <div class="sub-top">
+              <span class="sub-tier">Starter</span>
+              <div class="sub-roast-label">☀️ Light Roast</div>
+              <div class="sub-price"><span>$24</span><small>/month</small></div>
+            </div>
+            <ul class="sub-benefits">
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> 250g
+                Premium Beans
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Free
+                Shipping
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Tasting
+                Notes Card
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Pause
+                Anytime
+              </li>
+            </ul>
+            <button class="btn-primary full-w magnetic-btn">
+              Subscribe Now
+            </button>
+          </div>
+          <div class="sub-card sub-featured js-stagger" data-delay="150">
+            <div class="sub-popular-tag">Most Popular</div>
+            <div class="sub-top">
+              <span class="sub-tier">Explorer</span>
+              <div class="sub-roast-label">🌤 Medium Roast</div>
+              <div class="sub-price"><span>$39</span><small>/month</small></div>
+            </div>
+            <ul class="sub-benefits">
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> 500g
+                Premium Beans
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Free
+                Priority Shipping
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> 2 Origin
+                Varieties
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> 10% Store
+                Discount
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Pause
+                Anytime
+              </li>
+            </ul>
+            <button class="btn-primary full-w magnetic-btn">
+              Subscribe Now
+            </button>
+          </div>
+          <div class="sub-card js-stagger" data-delay="300">
+            <div class="sub-top">
+              <span class="sub-tier">Connoisseur</span>
+              <div class="sub-roast-label">🌑 Dark Roast</div>
+              <div class="sub-price"><span>$59</span><small>/month</small></div>
+            </div>
+            <ul class="sub-benefits">
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> 1kg Premium
+                Beans
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Free
+                Express Shipping
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> 4 Exclusive
+                Origins
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> 20% Store
+                Discount
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Barista
+                Video Guide
+              </li>
+              <li>
+                <i class="fa-solid fa-check" aria-hidden="true"></i> Pause
+                Anytime
+              </li>
+            </ul>
+            <button class="btn-primary full-w magnetic-btn">
+              Subscribe Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= MENU PREVIEW ========================= -->
+    <section class="menu-preview" id="menu" aria-labelledby="menu-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Full Menu</span>
+          <h2 class="section-title" id="menu-heading">
+            Something for<br /><em>Every Craving</em>
+          </h2>
+        </div>
+        <div class="menu-tabs-wrap" role="tablist" aria-label="Menu categories">
+          <button
+            class="menu-tab active"
+            role="tab"
+            data-tab="coffee"
+            aria-selected="true"
+            aria-controls="tab-coffee"
+            id="tab-btn-coffee"
+          >
+            Coffee
+          </button>
+          <button
+            class="menu-tab"
+            role="tab"
+            data-tab="tea"
+            aria-selected="false"
+            aria-controls="tab-tea"
+            id="tab-btn-tea"
+          >
+            Tea
+          </button>
+          <button
+            class="menu-tab"
+            role="tab"
+            data-tab="desserts"
+            aria-selected="false"
+            aria-controls="tab-desserts"
+            id="tab-btn-desserts"
+          >
+            Desserts
+          </button>
+          <button
+            class="menu-tab"
+            role="tab"
+            data-tab="breakfast"
+            aria-selected="false"
+            aria-controls="tab-breakfast"
+            id="tab-btn-breakfast"
+          >
+            Breakfast
+          </button>
+          <button
+            class="menu-tab"
+            role="tab"
+            data-tab="sandwiches"
+            aria-selected="false"
+            aria-controls="tab-sandwiches"
+            id="tab-btn-sandwiches"
+          >
+            Sandwiches
+          </button>
+          <button
+            class="menu-tab"
+            role="tab"
+            data-tab="seasonal"
+            aria-selected="false"
+            aria-controls="tab-seasonal"
+            id="tab-btn-seasonal"
+          >
+            Seasonal
+          </button>
+        </div>
+        <div
+          class="menu-panel active"
+          id="tab-coffee"
+          role="tabpanel"
+          aria-labelledby="tab-btn-coffee"
+        >
+          <div class="menu-list">
+            <div class="menu-row">
+              <span class="mr-name"
+                >Espresso<span class="mr-desc">
+                  · Single origin, intense</span
+                ></span
+              ><span class="mr-price">$4.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Double Espresso<span class="mr-desc">
+                  · Twice the depth</span
+                ></span
+              ><span class="mr-price">$5.00</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Americano<span class="mr-desc">
+                  · Espresso &amp; hot water</span
+                ></span
+              ><span class="mr-price">$4.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Flat White<span class="mr-desc">
+                  · Micro-foam, silky</span
+                ></span
+              ><span class="mr-price">$5.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Cappuccino<span class="mr-desc">
+                  · Equal parts espresso, milk, foam</span
+                ></span
+              ><span class="mr-price">$5.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Latte<span class="mr-desc"> · Creamy, smooth</span></span
+              ><span class="mr-price">$5.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Caramel Latte<span class="mr-desc">
+                  · Sweet &amp; indulgent</span
+                ></span
+              ><span class="mr-price">$6.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Mocha<span class="mr-desc">
+                  · Chocolate &amp; espresso</span
+                ></span
+              ><span class="mr-price">$6.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Cold Brew<span class="mr-desc"> · 18hr cold steep</span></span
+              ><span class="mr-price">$5.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Affogato<span class="mr-desc">
+                  · Espresso over vanilla gelato</span
+                ></span
+              ><span class="mr-price">$7.50</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="menu-panel"
+          id="tab-tea"
+          role="tabpanel"
+          aria-labelledby="tab-btn-tea"
+        >
+          <div class="menu-list">
+            <div class="menu-row">
+              <span class="mr-name"
+                >Matcha Latte<span class="mr-desc">
+                  · Ceremonial grade</span
+                ></span
+              ><span class="mr-price">$6.20</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Chai Latte<span class="mr-desc"> · Spiced, warming</span></span
+              ><span class="mr-price">$5.80</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Earl Grey<span class="mr-desc"> · Classic bergamot</span></span
+              ><span class="mr-price">$4.00</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Jasmine Green<span class="mr-desc">
+                  · Delicate &amp; floral</span
+                ></span
+              ><span class="mr-price">$4.20</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Chamomile<span class="mr-desc">
+                  · Calming &amp; gentle</span
+                ></span
+              ><span class="mr-price">$4.00</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Hibiscus Iced Tea<span class="mr-desc">
+                  · Refreshing &amp; vibrant</span
+                ></span
+              ><span class="mr-price">$4.80</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="menu-panel"
+          id="tab-desserts"
+          role="tabpanel"
+          aria-labelledby="tab-btn-desserts"
+        >
+          <div class="menu-list">
+            <div class="menu-row">
+              <span class="mr-name"
+                >Almond Croissant<span class="mr-desc">
+                  · Buttery, flaky</span
+                ></span
+              ><span class="mr-price">$4.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Basque Cheesecake<span class="mr-desc">
+                  · Creamy, caramelized</span
+                ></span
+              ><span class="mr-price">$6.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Cardamom Bun<span class="mr-desc"> · Swedish style</span></span
+              ><span class="mr-price">$3.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Tiramisu Tart<span class="mr-desc">
+                  · Coffee-soaked masterpiece</span
+                ></span
+              ><span class="mr-price">$7.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Banana Bread<span class="mr-desc"> · Warm, toasted</span></span
+              ><span class="mr-price">$4.20</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Miso Cookie<span class="mr-desc">
+                  · Salty-sweet signature</span
+                ></span
+              ><span class="mr-price">$2.90</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="menu-panel"
+          id="tab-breakfast"
+          role="tabpanel"
+          aria-labelledby="tab-btn-breakfast"
+        >
+          <div class="menu-list">
+            <div class="menu-row">
+              <span class="mr-name"
+                >Avocado Toast<span class="mr-desc">
+                  · Sourdough, poached egg</span
+                ></span
+              ><span class="mr-price">$12.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Eggs Benedict<span class="mr-desc">
+                  · Hollandaise, smoked salmon</span
+                ></span
+              ><span class="mr-price">$14.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Granola Bowl<span class="mr-desc">
+                  · Seasonal fruit &amp; honey</span
+                ></span
+              ><span class="mr-price">$9.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Acai Bowl<span class="mr-desc">
+                  · Blended frozen, topped fresh</span
+                ></span
+              ><span class="mr-price">$11.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Bircher Muesli<span class="mr-desc">
+                  · Overnight oats, apple</span
+                ></span
+              ><span class="mr-price">$8.50</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="menu-panel"
+          id="tab-sandwiches"
+          role="tabpanel"
+          aria-labelledby="tab-btn-sandwiches"
+        >
+          <div class="menu-list">
+            <div class="menu-row">
+              <span class="mr-name"
+                >Smoked Salmon Bagel<span class="mr-desc">
+                  · Cream cheese, capers</span
+                ></span
+              ><span class="mr-price">$13.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Roasted Chicken Ciabatta<span class="mr-desc">
+                  · Pesto, sun-dried tomato</span
+                ></span
+              ><span class="mr-price">$12.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Caprese Focaccia<span class="mr-desc">
+                  · Burrata, basil oil</span
+                ></span
+              ><span class="mr-price">$11.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Grilled Halloumi Wrap<span class="mr-desc">
+                  · Tzatziki, roasted veggies</span
+                ></span
+              ><span class="mr-price">$11.50</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="menu-panel"
+          id="tab-seasonal"
+          role="tabpanel"
+          aria-labelledby="tab-btn-seasonal"
+        >
+          <div class="menu-list">
+            <div class="menu-row">
+              <span class="mr-name"
+                >Pumpkin Spice Latte<span class="mr-desc">
+                  · Autumn special</span
+                ></span
+              ><span class="mr-price">$7.20</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Rose Cardamom Latte<span class="mr-desc">
+                  · Spring floral</span
+                ></span
+              ><span class="mr-price">$6.90</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Lavender Cold Brew<span class="mr-desc">
+                  · Summer refresh</span
+                ></span
+              ><span class="mr-price">$6.50</span>
+            </div>
+            <div class="menu-row">
+              <span class="mr-name"
+                >Salted Caramel Cortado<span class="mr-desc">
+                  · Winter warmth</span
+                ></span
+              ><span class="mr-price">$6.80</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= BLOG ========================= -->
+    <section class="blog" id="blog" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Coffee Culture</span>
+          <h2 class="section-title" id="blog-heading">
+            From Our<br /><em>Journal</em>
+          </h2>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card js-stagger" data-delay="0">
+            <div class="blog-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/3879495/pexels-photo-3879495.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Pour over coffee brewing guide"
+                loading="lazy"
+              />
+              <span class="blog-cat">Brewing Guide</span>
+            </div>
+            <div class="blog-body">
+              <time class="blog-date" datetime="2025-07-12">July 12, 2025</time>
+              <h3>How to Brew Better Coffee at Home</h3>
+              <p>
+                Transform your morning routine with 7 expert techniques used by
+                our head baristas every single day.
+              </p>
+              <a
+                href="#"
+                class="blog-link"
+                aria-label="Read article: How to Brew Better Coffee at Home"
+                >Read Article
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+              ></a>
+            </div>
+          </article>
+          <article class="blog-card js-stagger" data-delay="150">
+            <div class="blog-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Latte art in a white cup"
+                loading="lazy"
+              />
+              <span class="blog-cat">Barista Skills</span>
+            </div>
+            <div class="blog-body">
+              <time class="blog-date" datetime="2025-06-28">June 28, 2025</time>
+              <h3>Latte Art Basics: Your First Rosetta</h3>
+              <p>
+                Our latte art champion Aisha breaks down milk texturing and pour
+                technique for beginners.
+              </p>
+              <a
+                href="#"
+                class="blog-link"
+                aria-label="Read article: Latte Art Basics"
+                >Read Article
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+              ></a>
+            </div>
+          </article>
+          <article class="blog-card js-stagger" data-delay="300">
+            <div class="blog-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/2523645/pexels-photo-2523645.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Ethiopian coffee farm"
+                loading="lazy"
+              />
+              <span class="blog-cat">Origin Stories</span>
+            </div>
+            <div class="blog-body">
+              <time class="blog-date" datetime="2025-06-10">June 10, 2025</time>
+              <h3>Ethiopia: The Birthplace of Coffee</h3>
+              <p>
+                Journey with us to the Yirgacheffe highlands, where wild coffee
+                trees grow and tradition runs deep.
+              </p>
+              <a
+                href="#"
+                class="blog-link"
+                aria-label="Read article: Ethiopia: The Birthplace of Coffee"
+                >Read Article
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= INSTAGRAM FEED ========================= -->
+    <section class="instagram" aria-labelledby="insta-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">@emberandbean</span>
+          <h2 class="section-title" id="insta-heading">
+            Follow Our<br /><em>Daily Story</em>
+          </h2>
+        </div>
+      </div>
+      <div class="insta-grid" aria-label="Instagram photo gallery">
+        <a href="#" class="insta-item" aria-label="Instagram post: latte art"
+          ><img
+            src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=500"
+            alt="Latte art"
+            loading="lazy" />
+          <div class="insta-hover" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i></div
+        ></a>
+        <a href="#" class="insta-item" aria-label="Instagram post: espresso"
+          ><img
+            src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=500"
+            alt="Espresso"
+            loading="lazy" />
+          <div class="insta-hover" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i></div
+        ></a>
+        <a href="#" class="insta-item" aria-label="Instagram post: coffee beans"
+          ><img
+            src="https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=500"
+            alt="Coffee beans"
+            loading="lazy" />
+          <div class="insta-hover" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i></div
+        ></a>
+        <a href="#" class="insta-item" aria-label="Instagram post: café friends"
+          ><img
+            src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=500"
+            alt="Friends at café"
+            loading="lazy" />
+          <div class="insta-hover" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i></div
+        ></a>
+        <a href="#" class="insta-item" aria-label="Instagram post: workspace"
+          ><img
+            src="https://images.pexels.com/photos/1585325/pexels-photo-1585325.jpeg?auto=compress&cs=tinysrgb&w=500"
+            alt="Laptop workspace"
+            loading="lazy" />
+          <div class="insta-hover" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i></div
+        ></a>
+        <a href="#" class="insta-item" aria-label="Instagram post: pour over"
+          ><img
+            src="https://images.pexels.com/photos/3879495/pexels-photo-3879495.jpeg?auto=compress&cs=tinysrgb&w=500"
+            alt="Pour over brewing"
+            loading="lazy" />
+          <div class="insta-hover" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i></div
+        ></a>
+      </div>
+    </section>
+
+    <!-- ========================= COFFEE QUIZ ========================= -->
+    <section class="quiz" aria-labelledby="quiz-heading">
+      <div class="container">
+        <div class="quiz-wrap">
+          <div class="quiz-header">
+            <span class="section-label">Discover Yourself</span>
+            <h2 class="section-title" id="quiz-heading">
+              What's Your<br /><em>Coffee Personality?</em>
+            </h2>
+            <p>Answer 3 quick questions and we'll find your perfect cup.</p>
+          </div>
+          <div class="quiz-box" id="quiz-box" aria-live="polite">
+            <div class="quiz-step active" id="qs-1">
+              <div class="quiz-progress">
+                <div class="qp-fill" style="width: 33%"></div>
+              </div>
+              <p class="quiz-step-label">Question 1 of 3</p>
+              <h4>How do you like to start your morning?</h4>
+              <div class="quiz-opts">
+                <button class="quiz-opt" data-next="2" data-val="bold">
+                  ⚡ Quick &amp; energizing
+                </button>
+                <button class="quiz-opt" data-next="2" data-val="smooth">
+                  🌅 Slow &amp; peaceful
+                </button>
+                <button class="quiz-opt" data-next="2" data-val="sweet">
+                  🍯 Sweet &amp; indulgent
+                </button>
+              </div>
+            </div>
+            <div class="quiz-step" id="qs-2">
+              <div class="quiz-progress">
+                <div class="qp-fill" style="width: 66%"></div>
+              </div>
+              <p class="quiz-step-label">Question 2 of 3</p>
+              <h4>Your ideal café vibe?</h4>
+              <div class="quiz-opts">
+                <button class="quiz-opt" data-next="3" data-val="focus">
+                  💻 Focus zone, laptop open
+                </button>
+                <button class="quiz-opt" data-next="3" data-val="social">
+                  🗣 Lively, friends around
+                </button>
+                <button class="quiz-opt" data-next="3" data-val="cozy">
+                  📖 Quiet corner, book in hand
+                </button>
+              </div>
+            </div>
+            <div class="quiz-step" id="qs-3">
+              <div class="quiz-progress">
+                <div class="qp-fill" style="width: 100%"></div>
+              </div>
+              <p class="quiz-step-label">Question 3 of 3</p>
+              <h4>Pick your flavor profile?</h4>
+              <div class="quiz-opts">
+                <button class="quiz-opt" data-next="result" data-val="intense">
+                  🌑 Dark &amp; intense
+                </button>
+                <button class="quiz-opt" data-next="result" data-val="fruity">
+                  🍒 Bright &amp; fruity
+                </button>
+                <button class="quiz-opt" data-next="result" data-val="nutty">
+                  🌰 Nutty &amp; caramel
+                </button>
+              </div>
+            </div>
+            <div class="quiz-step" id="qs-result">
+              <div class="quiz-result-icon" aria-hidden="true">☕</div>
+              <p class="quiz-step-label">Your perfect match is:</p>
+              <h4 id="quiz-result-name">Ethiopian Pour Over</h4>
+              <p id="quiz-result-desc">
+                Bright, floral and complex — this is coffee that makes you stop
+                and think.
+              </p>
+              <button class="btn-outline magnetic-btn" id="quiz-restart-btn">
+                Try Again
+                <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= NEWSLETTER ========================= -->
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div class="newsletter-inner">
+          <div class="nl-bg-text" aria-hidden="true">BREW</div>
+          <span class="section-label">Stay Connected</span>
+          <h2 class="section-title nl-title" id="newsletter-heading">
+            Stay <em>Brewed In</em>
+          </h2>
+          <p>
+            Get early access to seasonal specials, brewing guides, and exclusive
+            subscriber discounts.
+          </p>
+          <form
+            class="nl-form"
+            id="nl-form"
+            aria-label="Newsletter subscription"
+          >
+            <label for="nl-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="nl-email"
+              name="email"
+              placeholder="Enter your email address..."
+              required
+              autocomplete="email"
+            />
+            <button
+              type="submit"
+              class="btn-primary magnetic-btn"
+              id="nl-submit"
+            >
+              Subscribe
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </form>
+          <p class="nl-note">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i> No spam, ever.
+            Unsubscribe at any time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FAQ ========================= -->
+    <section class="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Got Questions?</span>
+          <h2 class="section-title" id="faq-heading">
+            Frequently<br /><em>Asked</em>
+          </h2>
+        </div>
+        <div class="faq-list" role="list">
+          <div class="faq-item" role="listitem">
+            <button
+              class="faq-q"
+              aria-expanded="false"
+              id="faq-q1"
+              aria-controls="faq-a1"
+            >
+              Do you offer dairy-free milk options?<i
+                class="fa-solid fa-plus"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              class="faq-a"
+              id="faq-a1"
+              role="region"
+              aria-labelledby="faq-q1"
+            >
+              <p>
+                Yes! We offer oat milk, almond milk, soy milk, and coconut milk
+                at no extra charge. Our baristas are trained to steam each
+                alternative optimally for the best texture and taste.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button
+              class="faq-q"
+              aria-expanded="false"
+              id="faq-q2"
+              aria-controls="faq-a2"
+            >
+              How fresh are your beans?<i
+                class="fa-solid fa-plus"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              class="faq-a"
+              id="faq-a2"
+              role="region"
+              aria-labelledby="faq-q2"
+            >
+              <p>
+                We roast every batch in-house and our beans reach your cup
+                within 48 hours of roasting. We never serve or sell beans older
+                than 2 weeks from their roast date.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button
+              class="faq-q"
+              aria-expanded="false"
+              id="faq-q3"
+              aria-controls="faq-a3"
+            >
+              Can I pause or cancel my subscription?<i
+                class="fa-solid fa-plus"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              class="faq-a"
+              id="faq-a3"
+              role="region"
+              aria-labelledby="faq-q3"
+            >
+              <p>
+                Absolutely. You can pause, skip a month, or cancel your
+                subscription at any time from your account dashboard — no
+                questions asked, no penalties.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button
+              class="faq-q"
+              aria-expanded="false"
+              id="faq-q4"
+              aria-controls="faq-a4"
+            >
+              Do you ship internationally?<i
+                class="fa-solid fa-plus"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              class="faq-a"
+              id="faq-a4"
+              role="region"
+              aria-labelledby="faq-q4"
+            >
+              <p>
+                Yes! We ship to over 40 countries. International orders are
+                shipped express to ensure freshness. Shipping costs and delivery
+                times vary by location.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button
+              class="faq-q"
+              aria-expanded="false"
+              id="faq-q5"
+              aria-controls="faq-a5"
+            >
+              What are your café opening hours?<i
+                class="fa-solid fa-plus"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              class="faq-a"
+              id="faq-a5"
+              role="region"
+              aria-labelledby="faq-q5"
+            >
+              <p>
+                We're open Monday–Friday: 7:00 AM – 9:00 PM, Saturday: 8:00 AM –
+                10:00 PM, and Sunday: 9:00 AM – 8:00 PM. Hours may vary on
+                public holidays.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button
+              class="faq-q"
+              aria-expanded="false"
+              id="faq-q6"
+              aria-controls="faq-a6"
+            >
+              Do you host coffee workshops?<i
+                class="fa-solid fa-plus"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              class="faq-a"
+              id="faq-a6"
+              role="region"
+              aria-labelledby="faq-q6"
+            >
+              <p>
+                Yes! We run monthly workshops including Latte Art Basics, Home
+                Brewing Masterclass, and Coffee Origins Tasting. Follow us on
+                Instagram for dates and registration links.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="footer" id="contact" aria-label="Site footer">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand-col">
+            <img
+              src="images/logo.png"
+              alt="Ember &amp; Bean"
+              class="footer-logo"
+            />
+            <p class="footer-tagline">Crafted Slowly. Savored Deeply.</p>
+            <div class="footer-socials" aria-label="Social media links">
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Twitter / X"
+                ><i class="fa-brands fa-x-twitter" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fa-brands fa-youtube" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Pinterest"
+                ><i class="fa-brands fa-pinterest" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">Our Story</a></li>
+              <li><a href="#drinks">Menu</a></li>
+              <li><a href="#beans">Coffee Beans</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#blog">Journal</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="#order">Order Online</a></li>
+              <li><a href="#subscription">Subscriptions</a></li>
+              <li><a href="#">Gift Cards</a></li>
+              <li><a href="#">Merchandise</a></li>
+              <li><a href="#">Brewing Equipment</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-contact-col">
+            <h4>Visit Us</h4>
+            <address class="footer-address">
+              <p>
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i> 42
+                Roast Lane, Melbourne VIC 3000, AU
+              </p>
+              <p>
+                <i class="fa-solid fa-phone" aria-hidden="true"></i> +61 3 9XXX
+                XXXX
+              </p>
+              <p>
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                hello@emberandbean.com
+              </p>
+            </address>
+            <div class="footer-hours">
+              <h4>Opening Hours</h4>
+              <div class="fh-row">
+                <span>Mon – Fri</span><span>7:00 AM – 9:00 PM</span>
+              </div>
+              <div class="fh-row">
+                <span>Saturday</span><span>8:00 AM – 10:00 PM</span>
+              </div>
+              <div class="fh-row">
+                <span>Sunday</span><span>9:00 AM – 8:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2025 Ember &amp; Bean. All rights reserved. Crafted with ♥ and ☕
+          </p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Sticky Order Button -->
+    <a
+      href="#order"
+      class="mob-order-sticky"
+      id="mob-order-sticky"
+      aria-label="Order now"
+    >
+      <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+      <span>Order Now</span>
+    </a>
+
+    <!-- Quick View Modal -->
+    <div
+      class="modal-overlay"
+      id="modal-overlay"
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-box" id="modal-box">
+        <button
+          class="modal-close-btn"
+          id="modal-close-btn"
+          aria-label="Close modal"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="modal-content" id="modal-content"></div>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Main Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
